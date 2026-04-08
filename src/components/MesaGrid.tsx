@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useId, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import type { Mesa } from '@/types'
 import { MesaCard } from './MesaCard'
@@ -13,13 +13,14 @@ interface Props {
 
 export function MesaGrid({ initialMesas, selectedMesa, onSelect }: Props) {
   const [mesas, setMesas] = useState<Mesa[]>(initialMesas)
+  const instanceId = useId()
 
   useEffect(() => {
     const supabase = createClient()
 
-    // Suscripción Realtime a cambios en mesas
+    // Suscripción Realtime a cambios en mesas (canal único por instancia)
     const channel = supabase
-      .channel('mesas-realtime')
+      .channel(`mesas-realtime-${instanceId}`)
       .on(
         'postgres_changes',
         { event: '*', schema: 'public', table: 'mesas' },

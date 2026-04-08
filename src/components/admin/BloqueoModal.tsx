@@ -5,15 +5,16 @@ import type { Mesa, BloqueoFormData } from '@/types'
 
 interface Props {
   mesas: Mesa[]
+  preselectedMesaId?: string | null
   onClose: () => void
   onCreated: () => void
 }
 
-export function BloqueoModal({ mesas, onClose, onCreated }: Props) {
+export function BloqueoModal({ mesas, preselectedMesaId, onClose, onCreated }: Props) {
   const [isPending, startTransition] = useTransition()
   const [error, setError] = useState<string | null>(null)
   const [form, setForm] = useState<BloqueoFormData>({
-    mesa_id: null,
+    mesa_id: preselectedMesaId ?? null,
     fecha: new Date().toISOString().split('T')[0],
     hora_inicio: '10:00',
     hora_fin: '12:00',

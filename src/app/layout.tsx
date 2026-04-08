@@ -7,6 +7,7 @@ const geist = Geist({ subsets: ['latin'], variable: '--font-geist' })
 export const metadata: Metadata = {
   title: 'StrikePool — Reservas de mesas de billar',
   description: 'Reserva tu mesa de billar en StrikePool de forma fácil y rápida.',
+  icons: { icon: '/logo.png' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

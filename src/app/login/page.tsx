@@ -30,9 +30,8 @@ export default function LoginPage() {
     <div className="min-h-screen bg-gray-950 flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
-          <span className="text-5xl">🎱</span>
-          <h1 className="text-2xl font-bold text-white mt-3">StrikePool Admin</h1>
-          <p className="text-gray-400 text-sm mt-1">Panel de administración</p>
+          <img src="/logo.png" alt="Strike Pool" className="h-28 w-auto mx-auto mb-3" />
+          <p className="text-gray-400 text-sm">Panel de administración</p>
         </div>
 
         <form

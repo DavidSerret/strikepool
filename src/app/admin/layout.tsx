@@ -12,11 +12,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
       <header className="border-b border-gray-800 bg-gray-900/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-xl">🎱</span>
-            <div>
-              <h1 className="text-lg font-bold text-white">StrikePool</h1>
-              <p className="text-xs text-gray-400">Panel de administración</p>
-            </div>
+            <img src="/logo.png" alt="Strike Pool" className="h-14 w-auto" />
+            <p className="text-xs text-gray-400 hidden sm:block">Panel de administración</p>
           </div>
           <div className="flex items-center gap-4">
             <span className="text-xs text-gray-500 hidden sm:block">{user.email}</span>
